@@ -22,7 +22,6 @@ export default {
     // axios 是异步请求
     async mounted(){
         let ret =  await nowPlayingListData(this.pageNum)
-        console.log(ret.data.data.films)
         this.list = ret.data.data.films
     }
 }

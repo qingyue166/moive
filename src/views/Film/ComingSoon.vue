@@ -6,7 +6,7 @@
 
 <script>
 // 导入正在热映的请求方法
-import {comingsoonListData} from '@/api/api'
+import {comingSoonListData} from '@/api/api'
 import FilmList from '@/components/FilmList'
 export default {
     data(){
@@ -21,7 +21,7 @@ export default {
     },
     // axios 是异步请求
     async mounted(){
-        let ret =  await comingsoonListData(this.pageNum)
+        let ret =  await comingSoonListData(this.pageNum)
         console.log(ret.data.data.films)
         this.list = ret.data.data.films
     }

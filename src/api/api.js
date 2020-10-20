@@ -8,6 +8,7 @@ import {
     cityListUrl,
     loginUrl,
     centerUrl,
+    cinemaListUrl
 } from "@/config/url";
 
 // 请求正在热映列表数据
@@ -19,6 +20,7 @@ export const nowPlayingListData = (pageNum) => {
 
 // 请求即将上映列表数据
 export const comingSoonListData = (pageNum) => {
+    http.defaults.headers.authorization = "";
     return http.get(comingSoonListUri + pageNum);
 };
 
@@ -28,6 +30,14 @@ export const moiveDetailData = (filmId) => {
     http.defaults.headers.info = "info";
     http.defaults.headers.authorization = "";
     return http.get(moiveDetailUrl + filmId);
+};
+
+// 请求影院数据
+export const cinemaListData = () => {
+    // 给axios设置请求头
+    http.defaults.headers.info = "cinema";
+    http.defaults.headers.authorization = "";
+    return http.get(cinemaListUrl);
 };
 
 // 城市列表数据
@@ -73,13 +83,13 @@ export const userLogin = (data) => {
 // 获取用户个人信息
 export const userInfo = (_token) => {
     http.defaults.headers.authorization = _token;
-    http.interceptors.response.use(function(response){
-        response.data.user_info.gender = response.data.user_info.gender
-            ? "女"
-            : "男";
-        return response
-    },function(error){
-        // 错误的处理
-    });
+    // http.interceptors.response.use(function(response){
+    //     response.data.user_info.gender = response.data.user_info.gender
+    //         ? "女"
+    //         : "男";
+    //     return response
+    // },function(error){
+    //     // 错误的处理
+    // });
     return http.get(centerUrl);
 };
