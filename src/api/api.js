@@ -20,6 +20,8 @@ export const nowPlayingListData = (pageNum) => {
 
 // 请求即将上映列表数据
 export const comingSoonListData = (pageNum) => {
+    http.defaults.headers.info = "";
+
     http.defaults.headers.authorization = "";
     return http.get(comingSoonListUri + pageNum);
 };

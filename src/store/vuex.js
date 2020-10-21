@@ -9,7 +9,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         count: 0,
-        city: "地球",
+        city: "北京",
         // 如果有更多的数据需存储记这些就完了
         _token: "",
     },

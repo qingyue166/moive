@@ -33,6 +33,7 @@ import ('@/assets/iconfont/iconfont.css');
   background: #fff;
   color: #7a7e83;
   width: 100%;
+  z-index: 9999;
 
   ul {
     display: flex;
